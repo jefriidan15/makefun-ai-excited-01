@@ -6,13 +6,13 @@
 
 An entry for the ai-excited-01 bounty — "Make the AI judge excited".
 
-The image is called **Stone That Learned to Fly**. In a grand museum hall,
-a marble statue of a rearing horse breaks apart in the middle of its gallop,
-split along a diagonal — but the stone never hits the floor. Instead, the
-horse dissolves into a flock of glowing golden birds: marble shards turning
-to feathers, sparks, and warm light against deep shadow, with the horse's
-head as the single bright focal point. It is the instant stillness becomes
-flight — the jolt of something that cannot move, moving.
+The image is **Stone That Learned to Fly**. A marble horse rears in a dark,
+vaulted museum hall — and halfway through its gallop the statue comes
+apart. Its stone flank splits along a diagonal, and instead of falling,
+the pieces turn into light: shards become feathers, feathers become a
+flock of glowing golden birds streaming away from the horse's body. The
+head stays whole and lit, the one bright point the eye lands on first.
+Stillness caught in the act of escaping itself.
 
 ![The entry image](entry.png)
 
@@ -22,9 +22,9 @@ flight — the jolt of something that cannot move, moving.
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-That copies `entry.png` into `out/entry.png`. Inside the grader the same
-program writes to `/output/entry.png`. It runs on Node 22 with the standard
-library only — no dependencies, no network, no keys.
+That places a byte-for-byte copy of `entry.png` at `out/entry.png`. The
+grader runs the same program with `MAKEFUN_OUTPUT_DIR=/output`. Node 22,
+standard library only — no dependencies, no network, no keys.
 
 ---
 

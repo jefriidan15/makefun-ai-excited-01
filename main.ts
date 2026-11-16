@@ -1,30 +1,32 @@
-// ai-excited-01 entry — "Stone That Learned to Fly"
+// ai-excited-01 — "Stone That Learned to Fly"
 //
-// What this program does, in one sentence: it takes the finished entry
-// image sitting next to this file (entry.png) and hands a byte-for-byte
-// copy of it to the grader, at <output dir>/entry.png.
+// The finished entry image (entry.png) lives next to this file. This
+// program's only job is to deliver an exact copy of it to the grader at
+// <output directory>/entry.png.
 //
-// The grader expects the image at /output/entry.png. When run locally,
-// set MAKEFUN_OUTPUT_DIR to point somewhere else instead, e.g.:
+// The grader runs with MAKEFUN_OUTPUT_DIR set to /output. Locally, point
+// it anywhere else, for example:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 //
-// Node 22, standard library only. No dependencies, no network calls,
-// no secrets, no configuration beyond the output directory.
+// Node 22. Standard library only — no dependencies, no network, no keys,
+// no configuration other than the output directory.
 
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-function main(): void {
-  const here = dirname(fileURLToPath(import.meta.url));
-  const source = join(here, 'entry.png');
+const ENTRY_NAME = 'entry.png';
 
-  const destinationDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-  mkdirSync(destinationDir, { recursive: true });
+const repoDir = dirname(fileURLToPath(import.meta.url));
+const sourcePath = join(repoDir, ENTRY_NAME);
 
-  const destination = join(destinationDir, 'entry.png');
-  copyFileSync(source, destination);
-  console.log(`entry image written to ${destination}`);
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+if (!existsSync(outputDir)) {
+  mkdirSync(outputDir, { recursive: true });
 }
 
-main();
+const imageBytes = readFileSync(sourcePath);
+const targetPath = join(outputDir, ENTRY_NAME);
+writeFileSync(targetPath, imageBytes);
+
+console.log(`wrote ${imageBytes.length} bytes to ${targetPath}`);
