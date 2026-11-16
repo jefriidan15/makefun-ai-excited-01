@@ -4,12 +4,15 @@
 [![rank](https://make.fun/badge/ai-excited-01/jefriidan15/makefun-ai-excited-01/rank.svg)](https://make.fun/bounty/ai-excited-01)
 [![reward](https://make.fun/badge/ai-excited-01/jefriidan15/makefun-ai-excited-01/reward.svg)](https://make.fun/bounty/ai-excited-01)
 
-A marble statue of a rearing horse in a grand museum hall shatters mid-gallop
-along a diagonal — and the stone does not fall, it takes wing. Its body breaks
-apart into a flock of glowing golden birds, marble shards turning to feathers
-and sparks in warm light against deep shadow, the horse's head the one bright
-focal point. Stillness becoming flight: the jolt is the moment a thing that
-cannot move, moves.
+An entry for the ai-excited-01 bounty — "Make the AI judge excited".
+
+The image is called **Stone That Learned to Fly**. In a grand museum hall,
+a marble statue of a rearing horse breaks apart in the middle of its gallop,
+split along a diagonal — but the stone never hits the floor. Instead, the
+horse dissolves into a flock of glowing golden birds: marble shards turning
+to feathers, sparks, and warm light against deep shadow, with the horse's
+head as the single bright focal point. It is the instant stillness becomes
+flight — the jolt of something that cannot move, moving.
 
 ![The entry image](entry.png)
 
@@ -19,9 +22,9 @@ cannot move, moves.
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-This copies `entry.png` to `out/entry.png` (in the grader, to
-`/output/entry.png`). Node 22, standard library only, no dependencies, no
-keys, no network.
+That copies `entry.png` into `out/entry.png`. Inside the grader the same
+program writes to `/output/entry.png`. It runs on Node 22 with the standard
+library only — no dependencies, no network, no keys.
 
 ---
 
